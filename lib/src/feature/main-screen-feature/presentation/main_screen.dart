@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import './appbar.dart';
-
+import 'package:noi/src/feature/main-screen-feature/presentation/expandable-FAB.dart';
+import './appbar-widgets.dart';
+import './main-screen-body.dart';
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key, required this.title});
 
@@ -21,7 +22,6 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -35,6 +35,9 @@ class _MainScreenState extends State<MainScreen> {
         preferredSize: Size.fromHeight(150.0), // here the desired height
         child: mainAppbar,
       ),
+      body: Center(
+        child: MainScreenColumn(),
+      ),floatingActionButton: AddExpandleFAB(),
     );
   }
 }
