@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:noi/src/feature/create-item-feature/presentation/create_item_screen.dart';
+import 'package:noi/src/feature/create-shelf-feature/presentation/create_shelf_screen.dart';
 
 class AddExpandleFAB extends StatefulWidget {
   const AddExpandleFAB({Key? key}) : super(key: key);
@@ -8,7 +10,7 @@ class AddExpandleFAB extends StatefulWidget {
   State<AddExpandleFAB> createState() => _AddExpandleFABState();
 }
 
-bool isOpen = true;
+bool isOpen = false;
 
 class _AddExpandleFABState extends State<AddExpandleFAB> {
   //Use this for determined close or open
@@ -27,14 +29,16 @@ class _AddExpandleFABState extends State<AddExpandleFAB> {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         FABSubMenu(
-            menuName: "สร้างสินค้า",
-            menuIcon: Icons.add_shopping_cart,
-            menuIconColor: Color.fromRGBO(55, 146, 55, 1)
+          menuName: "สร้างสินค้า",
+          menuIcon: Icons.add_shopping_cart,
+          menuIconColor: Color.fromRGBO(55, 146, 55, 1),
+          destination: createItem(),
         ),
         FABSubMenu(
           menuName: "สร้างชั้นวางของ",
           menuIcon: Icons.shelves,
           menuIconColor: Color.fromRGBO(10, 36, 99, 1),
+          destination: CreateShelf(),
         ),
         SizedBox(
           width: 64,
@@ -66,12 +70,14 @@ class FABSubMenu extends StatefulWidget {
   String menuName;
   IconData menuIcon;
   Color menuIconColor;
+  Widget destination;
 
   FABSubMenu(
       {Key? key,
       required this.menuName,
       required this.menuIcon,
-      required this.menuIconColor})
+      required this.menuIconColor,
+      required this.destination})
       : super(key: key);
 
   @override
@@ -84,7 +90,13 @@ class _FABSubMenuState extends State<FABSubMenu> {
     return Visibility(
       visible: isOpen,
       child: GestureDetector(
-        onTap: () => print("${widget.menuName}: Tapped"),
+        onTap: () => {
+          isOpen = !isOpen,
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => widget.destination),
+          )
+        },
         child: Container(
           padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
           child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
