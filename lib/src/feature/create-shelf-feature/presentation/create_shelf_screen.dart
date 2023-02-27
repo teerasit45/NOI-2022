@@ -58,7 +58,7 @@ class ShelfInfoEnter extends StatelessWidget {
           color: Colors.white, borderRadius: BorderRadius.circular(10)),
       child: Center(
         child: Container(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.all(9),
           child: Column(children: [
             Container(
                 child: Row(
@@ -141,7 +141,7 @@ class ShelfTextField extends StatelessWidget {
                 fontWeight: FontWeight.w600),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(10, 10, 0, 10),
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
             child: TextFormField(
               decoration: InputDecoration(
                   fillColor: Color.fromRGBO(234, 234, 234, 0.75),

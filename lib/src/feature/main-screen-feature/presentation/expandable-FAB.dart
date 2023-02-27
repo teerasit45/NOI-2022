@@ -24,6 +24,7 @@ class _AddExpandleFABState extends State<AddExpandleFAB> {
 
   @override
   Widget build(BuildContext context) {
+    IconData shelves = IconData(0xf0877, fontFamily: 'MaterialIcons');
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.end,
@@ -36,7 +37,7 @@ class _AddExpandleFABState extends State<AddExpandleFAB> {
         ),
         FABSubMenu(
           menuName: "สร้างชั้นวางของ",
-          menuIcon: Icons.shelves,
+          menuIcon: Icons.inventory_outlined,
           menuIconColor: Color.fromRGBO(10, 36, 99, 1),
           destination: CreateShelf(),
         ),
@@ -47,7 +48,7 @@ class _AddExpandleFABState extends State<AddExpandleFAB> {
             child: Column(
               children: [
                 FloatingActionButton(
-                  backgroundColor: Color.fromRGBO(211, 47, 47, 1),
+                  backgroundColor: Color.fromRGBO(211, 47, 47, 1).withOpacity(0.7),
                   onPressed: pressAddBtn,
                   child: Center(
                       child: Container(

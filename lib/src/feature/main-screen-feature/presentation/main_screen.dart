@@ -3,6 +3,9 @@ import 'package:flutter/widgets.dart';
 import 'package:noi/src/feature/main-screen-feature/presentation/expandable-FAB.dart';
 import './appbar-widgets.dart';
 import './main-screen-body.dart';
+import './main-drawer.dart';
+import './navigation-bars.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key, required this.title});
 
@@ -31,13 +34,19 @@ class _MainScreenState extends State<MainScreen> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+      backgroundColor: Color(0xffeaeaea),
+      drawer: mainDrawer,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(150.0), // here the desired height
-        child: mainAppbar,
+        preferredSize: Size.fromHeight(180.0), // here the desired height
+        child: mainAppbar,),
+      // body:  Center(
+      //   child: MainScreenColumn(),
+      // ),
+      body: MyNavigationBars(),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 50),
+        child: AddExpandleFAB(),
       ),
-      body: Center(
-        child: MainScreenColumn(),
-      ),floatingActionButton: AddExpandleFAB(),
     );
   }
 }

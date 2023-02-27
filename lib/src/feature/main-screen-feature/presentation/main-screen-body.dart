@@ -20,4 +20,3 @@ class _MainScreenColumnState extends State<MainScreenColumn> {
     );
   }
 }
-
