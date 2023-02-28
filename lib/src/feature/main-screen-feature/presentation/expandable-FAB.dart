@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:noi/src/feature/create-item-feature/presentation/create_item_screen.dart';
 import 'package:noi/src/feature/create-shelf-feature/presentation/create_shelf_screen.dart';
+import 'package:noi/src/feature/create-shelf-feature/presentation/shelf-ticket.dart';
 
 class AddExpandleFAB extends StatefulWidget {
   const AddExpandleFAB({Key? key}) : super(key: key);
@@ -19,6 +20,7 @@ class _AddExpandleFABState extends State<AddExpandleFAB> {
     //Handle Add Btn Behavior
     setState(() {
       isOpen = !isOpen;
+      isDark = !isDark;
     });
   }
 
@@ -29,7 +31,7 @@ class _AddExpandleFABState extends State<AddExpandleFAB> {
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        FABSubMenu(
+          FABSubMenu(
           menuName: "สร้างสินค้า",
           menuIcon: Icons.add_shopping_cart,
           menuIconColor: Color.fromRGBO(55, 146, 55, 1),
@@ -48,7 +50,7 @@ class _AddExpandleFABState extends State<AddExpandleFAB> {
             child: Column(
               children: [
                 FloatingActionButton(
-                  backgroundColor: Color.fromRGBO(211, 47, 47, 1).withOpacity(0.7),
+                  backgroundColor: Color.fromRGBO(211, 47, 47, 1).withOpacity(1),
                   onPressed: pressAddBtn,
                   child: Center(
                       child: Container(

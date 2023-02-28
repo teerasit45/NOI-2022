@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:noi/src/feature/create-shelf-feature/presentation/shelf-ticket-list.dart';
+import 'package:noi/src/feature/create-shelf-feature/presentation/shelf-ticket.dart';
 
 
 class MyNavigationBars extends StatefulWidget {
@@ -10,8 +12,8 @@ class MyNavigationBars extends StatefulWidget {
 
 class _MyNavigationBarsState extends State<MyNavigationBars> {
   int _selectedIndex = 0;
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text('Index 1'),
+  static List<Widget> _widgetOptions = <Widget>[
+    ShelfTicket(),
     Text('Index 2'),
   ];
 

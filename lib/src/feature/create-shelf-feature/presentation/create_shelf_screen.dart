@@ -11,7 +11,7 @@ class CreateShelf extends StatelessWidget {
         actions: [
           TextButton(
               onPressed: () {},
-              child: Text('บันทึก',
+              child: const Text('บันทึก',
                   style: TextStyle(
                       fontSize: 20,
                       color: Color.fromRGBO(234, 234, 234, 1),
@@ -20,17 +20,17 @@ class CreateShelf extends StatelessWidget {
         ],
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: Icon(Icons.arrow_back_rounded),
+          icon: const Icon(Icons.arrow_back_rounded),
         ),
-        title: Text("สร้างชั้นวางของ",
+        title: const Text("สร้างชั้นวางของ",
             style: TextStyle(
                 color: Color.fromRGBO(234, 234, 234, 1),
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
                 fontFamily: 'Sukhumvit')),
       ),
-      body: CreateShelfBody(),
-      bottomNavigationBar: NFCBar(),
+      body: const CreateShelfBody(),
+      bottomNavigationBar: const NFCBar(),
     );
   }
 }
@@ -40,9 +40,9 @@ class CreateShelfBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(color: Color.fromRGBO(234, 234, 234, 1)),
-      padding: const EdgeInsets.all(20),
+    return  Container(
+      decoration:  BoxDecoration(color: Color.fromRGBO(234, 234, 234, 1)),
+      padding:  EdgeInsets.all(20),
       child: ShelfInfoEnter(),
     );
   }
@@ -58,7 +58,7 @@ class ShelfInfoEnter extends StatelessWidget {
           color: Colors.white, borderRadius: BorderRadius.circular(10)),
       child: Center(
         child: Container(
-          padding: EdgeInsets.all(9),
+          padding: const EdgeInsets.all(9),
           child: Column(children: [
             Container(
                 child: Row(
@@ -81,7 +81,7 @@ class ShelfInfoEnter extends StatelessWidget {
                 )),
                 Flexible(
                     child: ShelfTextField(
-                  name: 'จำนวนสินค้า',
+                  name: 'จำนวนสินค้าต่อชั้น',
                   hintText: 'สินค้า',
                 )),
               ],
@@ -95,7 +95,7 @@ class ShelfInfoEnter extends StatelessWidget {
                       name: 'หมายเลข',
                       hintText: 'กรุณาใส่หมายเลข',
                     )),
-                Flexible(flex: 1, child: DropDownMenu()),
+                 Flexible(flex: 1, child: DropDownMenu(dropDownName: 'สถานะ',)),
               ],
             ),
           ]),
@@ -107,7 +107,7 @@ class ShelfInfoEnter extends StatelessWidget {
 
 //============================Below here is widgets===============================//
 
-Widget shefInfoLabel = Text(
+Widget shefInfoLabel = const Text(
   "ข้อมูลชั้นวางของ",
   style: TextStyle(
       color: Colors.black,
@@ -160,7 +160,8 @@ class ShelfTextField extends StatelessWidget {
 }
 
 class DropDownMenu extends StatelessWidget {
-  const DropDownMenu({Key? key}) : super(key: key);
+  String dropDownName;
+   DropDownMenu({Key? key, required this.dropDownName}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -170,9 +171,9 @@ class DropDownMenu extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
+        children:  [
           Text(
-            'สถานะ',
+            dropDownName,
             style: TextStyle(
                 fontFamily: 'Sukhumvit',
                 fontSize: 20,
