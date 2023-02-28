@@ -64,45 +64,49 @@ class itemInfoEnter extends StatelessWidget {
             child: Center(
               child: Column(
                 children: [
-                  ShelfTextField(
-                    name: 'ชื่อ',
-                    hintText: 'กรุณาใส่ชื่อ',
-                  ),
-                  ShelfTextField(
-                    name: 'คำอธิบาย',
-                    hintText: 'กรุณาคำอธิบาย',
-                  ),
-                  Row(
+                  ListView(
                     children: [
-                      Flexible(
-                          flex: 3,
-                          child: ShelfTextField(
-                            name: 'จำนวนสินค้า',
-                            hintText: 'กรุณาใส่จำนวนสินค้า',
-                          )),
-                      Flexible(
-                          flex: 1,
-                          child: DropDownMenu(
-                            dropDownName: 'หน่วยสินค้า',
-                          )),
+                      ShelfTextField(
+                        name: 'ชื่อ',
+                        hintText: 'กรุณาใส่ชื่อ',
+                      ),
+                      ShelfTextField(
+                        name: 'คำอธิบาย',
+                        hintText: 'กรุณาคำอธิบาย',
+                      ),
+                      Row(
+                        children: [
+                          Flexible(
+                              flex: 3,
+                              child: ShelfTextField(
+                                name: 'จำนวนสินค้า',
+                                hintText: 'กรุณาใส่จำนวนสินค้า',
+                              )),
+                          Flexible(
+                              flex: 1,
+                              child: DropDownMenu(
+                                dropDownName: 'หน่วยสินค้า',
+                              )),
+                        ],
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Flexible(
+                              child: WeightTextField(
+                                  name: 'น้ำหนัก', hintText: "", unit: "กก.")),
+                          Flexible(
+                              child: DropDownMenu(
+                                dropDownName: 'สถานะ',
+                              ))
+                        ],
+                      ),
+                      ShelfTextField(
+                        name: 'ประเภท',
+                        hintText: 'กรุณาใส่ประเภทสินค้า',
+                      )
                     ],
                   ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Flexible(
-                          child: WeightTextField(
-                              name: 'น้ำหนัก', hintText: "", unit: "กก.")),
-                      Flexible(
-                          child: DropDownMenu(
-                        dropDownName: 'สถานะ',
-                      ))
-                    ],
-                  ),
-                  ShelfTextField(
-                    name: 'ประเภท',
-                    hintText: 'กรุณาใส่ประเภทสินค้า',
-                  )
                 ],
               ),
             ),
