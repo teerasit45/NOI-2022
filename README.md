@@ -1,4 +1,4 @@
-# noi
+# NOI
 
 NFC Organizer Inventory Application.
 
