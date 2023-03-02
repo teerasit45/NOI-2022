@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CreateShelf extends StatelessWidget {
-  const CreateShelf({Key? key}) : super(key: key);
+class CreateShelf extends StatefulWidget {
+   CreateShelf({Key? key}) : super(key: key);
 
+  @override
+  State<CreateShelf> createState() => _CreateShelfState();
+}
+
+class _CreateShelfState extends State<CreateShelf> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,7 +15,15 @@ class CreateShelf extends StatelessWidget {
         backgroundColor: Color.fromRGBO(10, 36, 99, 1),
         actions: [
           TextButton(
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  name.add(TextController.text.toString());
+                  number.add(TextController.text.toString());
+                  type.add(TextController.text.toString());
+                  status.add(TextController.text.toString());
+
+                });
+              },
               child: const Text('บันทึก',
                   style: TextStyle(
                       fontSize: 20,
@@ -42,14 +55,36 @@ class CreateShelfBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Container(
       decoration:  BoxDecoration(color: Color.fromRGBO(234, 234, 234, 1)),
-      padding:  EdgeInsets.all(20),
+      padding:  EdgeInsets.all(10),
       child: ShelfInfoEnter(),
     );
   }
 }
 
-class ShelfInfoEnter extends StatelessWidget {
-  const ShelfInfoEnter({Key? key}) : super(key: key);
+List<String> name = ["ABCDE","AFAF"];
+
+List<String> number = ["112","AFAF"];
+
+List<String> type = ["%5","AFAFAF"];
+
+List<String> status = ["OK","AFAF"];
+
+final TextController = TextEditingController();
+final TextController2 = TextEditingController();
+final TextController3 = TextEditingController();
+final TextController4 = TextEditingController();
+final TextController5 = TextEditingController();
+
+class ShelfInfoEnter extends StatefulWidget {
+   ShelfInfoEnter({Key? key}) : super(key: key);
+
+  @override
+  State<ShelfInfoEnter> createState() => _ShelfInfoEnterState();
+}
+
+class _ShelfInfoEnterState extends State<ShelfInfoEnter> {
+   
+
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +155,7 @@ class ShelfTextField extends StatelessWidget {
   String name;
   String hintText;
 
-  ShelfTextField({Key? key, required this.name, required this.hintText})
+  ShelfTextField({Key? key, required this.name, required this.hintText,})
       : super(key: key);
 
   @override
@@ -143,6 +178,7 @@ class ShelfTextField extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
             child: TextFormField(
+              controller: TextController,
               decoration: InputDecoration(
                   fillColor: Color.fromRGBO(234, 234, 234, 0.75),
                   filled: true,

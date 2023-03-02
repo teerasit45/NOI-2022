@@ -21,10 +21,9 @@ class _ShelfTicketState extends State<ShelfTicket> {
           ListView(
             padding: EdgeInsets.all(10),
             children: [
-              ShelfList(),
+              ShelfList(shelfName: '', shelfStatus: '', shelfType: '', shelfInt: '',),
             ],
           ),
-           darkScreen ,
         ]));
   }
 

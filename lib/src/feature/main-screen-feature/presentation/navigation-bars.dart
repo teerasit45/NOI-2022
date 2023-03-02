@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:noi/src/feature/create-shelf-feature/presentation/shelf-ticket-2.dart';
 import 'package:noi/src/feature/create-shelf-feature/presentation/shelf-ticket-list.dart';
 import 'package:noi/src/feature/create-shelf-feature/presentation/shelf-ticket.dart';
+import 'package:noi/src/feature/monitoring-feature/presentation/Monitoring.dart';
 
 
 class MyNavigationBars extends StatefulWidget {
@@ -9,17 +11,16 @@ class MyNavigationBars extends StatefulWidget {
   @override
   State<MyNavigationBars> createState() => _MyNavigationBarsState();
 }
-
+int selectedIndex = 0;
 class _MyNavigationBarsState extends State<MyNavigationBars> {
-  int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
-    ShelfTicket(),
-    Text('Index 2'),
+    ShelfTicketList(),
+    Monitoring(),
   ];
 
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      selectedIndex = index;
     });
   }
 
@@ -27,7 +28,7 @@ class _MyNavigationBarsState extends State<MyNavigationBars> {
   Widget build(BuildContext context) {
     return  Scaffold(
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: _widgetOptions.elementAt(selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
@@ -40,7 +41,7 @@ class _MyNavigationBarsState extends State<MyNavigationBars> {
               label: 'สรุปข้อมูล',
             ),
           ],
-          currentIndex: _selectedIndex,
+          currentIndex: selectedIndex,
           selectedItemColor: Color(0xff0a2463),
           onTap: _onItemTapped,
       ),

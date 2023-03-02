@@ -3,7 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:noi/src/feature/create-shelf-feature/presentation/shelf-ticket.dart';
 
 class ShelfList extends StatefulWidget {
-  const ShelfList({Key? key}) : super(key: key);
+  String shelfName, shelfStatus, shelfType,  shelfInt;
+
+  ShelfList(
+      {Key? key,
+      required this.shelfName,
+      required this.shelfStatus,
+      required this.shelfType,
+      required this.shelfInt,
+      })
+      : super(key: key);
 
   @override
   State<ShelfList> createState() => _ShelfListState();
@@ -41,7 +50,7 @@ class _ShelfListState extends State<ShelfList> {
                       ),
                     ),
                     Text(
-                      '001',
+                      widget.shelfInt,
                       style: TextStyle(
                         color: Color.fromRGBO(10, 36, 99, 1),
                         fontWeight: FontWeight.w700,
@@ -51,26 +60,48 @@ class _ShelfListState extends State<ShelfList> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 10,right: 10),
+                  padding: EdgeInsets.only(left: 5, right: 5),
                   child: Center(
                     child: Container(
                       height: 61,
                       width: 2,
-                      decoration: BoxDecoration(color: Color.fromRGBO(28, 27, 31, 0.76),borderRadius: BorderRadius.circular(3)),
+                      decoration: BoxDecoration(
+                          color: Color.fromRGBO(28, 27, 31, 0.76),
+                          borderRadius: BorderRadius.circular(3)),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: 3,top: 5),
+                  padding: EdgeInsets.only(bottom: 3, top: 5),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('ชื่อ: หนังสือภาษาไทย',style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.w600),),
-                      Text('สถานะ: จัดเก็บ  ประเภท: แหล่งความรู้',style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.w600),),
+                      Text(
+                        'ชื่อ: ${widget.shelfName}',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      Text(
+                        'สถานะ: ${widget.shelfStatus}  ประเภท: ${widget.shelfType}',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600),
+                      ),
                       Row(
                         children: [
-                          Container(width: 180,),
-                          Text('6/1/2566 - 8:22',style: TextStyle(color: Color.fromRGBO(0, 0, 0, 0.76),fontSize: 14,fontWeight: FontWeight.w400),),
+                          Container(
+                            width: 180,
+                          ),
+                          Text(
+                            '6/1/2566 - 8:22',
+                            style: TextStyle(
+                                color: Color.fromRGBO(0, 0, 0, 0.76),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400),
+                          ),
                         ],
                       ),
                     ],

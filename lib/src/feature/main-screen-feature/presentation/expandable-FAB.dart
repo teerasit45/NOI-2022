@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:noi/src/feature/create-item-feature/presentation/create-item-screen-2.dart';
 import 'package:noi/src/feature/create-item-feature/presentation/create_item_screen.dart';
+import 'package:noi/src/feature/create-shelf-feature/presentation/create-shelf-screen-2.dart';
 import 'package:noi/src/feature/create-shelf-feature/presentation/create_shelf_screen.dart';
 import 'package:noi/src/feature/create-shelf-feature/presentation/shelf-ticket.dart';
 
@@ -20,7 +22,6 @@ class _AddExpandleFABState extends State<AddExpandleFAB> {
     //Handle Add Btn Behavior
     setState(() {
       isOpen = !isOpen;
-      isDark = !isDark;
     });
   }
 
@@ -35,13 +36,13 @@ class _AddExpandleFABState extends State<AddExpandleFAB> {
           menuName: "สร้างสินค้า",
           menuIcon: Icons.add_shopping_cart,
           menuIconColor: Color.fromRGBO(55, 146, 55, 1),
-          destination: createItem(),
+          destination: CreatingItemBody(),
         ),
         FABSubMenu(
           menuName: "สร้างชั้นวางของ",
           menuIcon: Icons.inventory_outlined,
           menuIconColor: Color.fromRGBO(10, 36, 99, 1),
-          destination: CreateShelf(),
+          destination: CreatingShelvesBody(),
         ),
         SizedBox(
           width: 64,
@@ -59,6 +60,7 @@ class _AddExpandleFABState extends State<AddExpandleFAB> {
                     size: 45,
                     color: Color.fromRGBO(217, 217, 217, 1),
                   ))),
+
                 ),
               ],
             ),
@@ -101,12 +103,20 @@ class _FABSubMenuState extends State<FABSubMenu> {
           )
         },
         child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border.all(color: Colors.black),
+              borderRadius: BorderRadius.circular(5.0)
+          ),
+          width: 210,
+          margin: EdgeInsets.all(10),
           padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
           child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
             Text(widget.menuName,
                 style: TextStyle(
                     fontSize: 22,
                     fontFamily: 'Sukhumvit',
+                    color: Colors.black,
                     fontWeight: FontWeight.w600)),
             const SizedBox(
               width: 10,
